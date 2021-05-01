@@ -1,0 +1,41 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+  position: relative;
+  z-index: 1;
+  background: white;
+  width: 500px;
+  min-height: 100px;
+  top:30%;
+  left:60%;
+  transform: translate(-50%,-50%);
+  padding: 10px;
+  border-radius: 6px;
+  border-style: none;
+}
+
+.modalx{
+  display: flex;
+  justify-content: flex-end;
+}
+
+input[name=editamount] {
+  width: 26px;
+}
+
+input[name=editbuyprice] {
+  width: 56px;
+}
+
+.deletebut {
+  display:flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+}

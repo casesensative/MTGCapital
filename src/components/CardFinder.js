@@ -10,10 +10,19 @@ class CardFinder extends React.Component {
       cards: [],
       searchtext: '',
     }
+    this.applyEdits = this.applyEdits.bind(this);
   }
 
   componentDidMount() {
     axios.get('api/cards').then(res => {
+      this.setState({cards: res.data})
+    }).catch(err => {
+      console.log(err)
+    })
+  }
+
+  applyEdits(id, editamount, editbuyprice) {
+    axios.put(`/api/cards/${id}`, {amount: editamount, buyprice: editbuyprice}).then(res => {
       this.setState({cards: res.data})
     }).catch(err => {
       console.log(err)
@@ -41,7 +50,7 @@ class CardFinder extends React.Component {
             <button type="submit">Search</button>
           </form >
         </section>
-        <Interests />
+        <Interests applyEditsFn={this.applyEdits} />
       </section>
     )
   }

@@ -1,4 +1,5 @@
 import React from 'react';
+import Modal from './Modal/Modal'
 
 
 class CardEntry extends React.Component {
@@ -6,17 +7,21 @@ class CardEntry extends React.Component {
     super(props);
     this.state = {
       editmode: false,
-      modal: true
+      showmodal: false
     }
     this.editMode = this.editMode.bind(this);
-    this.modalMode = this.modalMode.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   editMode() {
     this.setState({editmode: !this.state.editmode});
   }
-  modalMode() {
-    this.setState({modal: !this.state.modal});
+  openModal() {
+    this.setState({showmodal: true});
+  }
+  closeModal() {
+    this.setState({showmodal: false});
   }
 
   render() {
@@ -27,8 +32,14 @@ class CardEntry extends React.Component {
     }
 
     const editButtons = <tr className="editpopup">
-      <button className="editbuttons">Edit</button>
+      <button className="toggle-button" onClick={this.openModal}>Edit</button>
       <button className="editbuttons">Delete</button>
+      <td><Modal id={this.props.id} 
+                closeModalFn={this.closeModal} 
+                showmodal={this.state.showmodal}
+                applyEditsFn = {this.props.applyEditsFn}>
+          </Modal>
+      </td>
     </tr>
 
 

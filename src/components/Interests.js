@@ -22,14 +22,15 @@ class Interests extends React.Component {
 
 
   render() {
-
+    const {applyEditsFn} = this.props;
     let interestList = this.state.cards.map(card => {
       return (
-          <CardEntry key={card.id} name={card.name}
+          <CardEntry key={card.id} name={card.name} id={card.id}
           set={card.set}
           mktprice={card.mktprice}
           buyprice={card.buyprice}
-          amount={card.amount}
+          amount={card.amount} 
+          applyEditsFn={applyEditsFn}
            />
       )
     })
