@@ -70,7 +70,7 @@ h1 {
   align-items: center;
 }
 .iname {
-  
+
 }
 
 .intereststable {
@@ -91,6 +91,10 @@ h1 {
 .intereststable tbody tr {
   text-align: left;
   
+}
+
+.editpopup {
+
 }
 
 

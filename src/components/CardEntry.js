@@ -5,14 +5,18 @@ class CardEntry extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      editmode: false
+      editmode: false,
+      modal: true
     }
     this.editMode = this.editMode.bind(this);
+    this.modalMode = this.modalMode.bind(this);
   }
 
   editMode() {
     this.setState({editmode: !this.state.editmode});
-    console.log(this.state.editmode);
+  }
+  modalMode() {
+    this.setState({modal: !this.state.modal});
   }
 
   render() {
@@ -21,15 +25,25 @@ class CardEntry extends React.Component {
     if (margins > 0) {
       margins = '+' + margins;
     }
+
+    const editButtons = <tr className="editpopup">
+      <button className="editbuttons">Edit</button>
+      <button className="editbuttons">Delete</button>
+    </tr>
+
+
     return (
-      <tr className="cardentry">
-        <td className="iname" onClick={() => this.editMode()}>{name}</td>
-        <td>{set}</td> 
-        <td>{amount}</td> 
-        <td>{buyprice}</td> 
-        <td>{mktprice}</td>
-        <td>{margins}</td>
-      </tr>
+      <tbody>
+        <tr className="cardentry">
+          <td className="iname" onClick={() => this.editMode()}>{name}</td>
+          <td>{set}</td> 
+          <td>{amount}</td> 
+          <td>{buyprice}</td> 
+          <td>{mktprice}</td>
+          <td>{margins}</td>
+        </tr>
+        {this.state.editmode ? editButtons : ''}
+      </tbody>
     )
 
   }

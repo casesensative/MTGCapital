@@ -25,12 +25,12 @@ class Interests extends React.Component {
 
     let interestList = this.state.cards.map(card => {
       return (
-        <CardEntry name={card.name}
-        set={card.set} 
-        mktprice={card.mktprice} 
-        buyprice={card.buyprice} 
-        amount={card.amount}
-         />
+          <CardEntry key={card.id} name={card.name}
+          set={card.set}
+          mktprice={card.mktprice}
+          buyprice={card.buyprice}
+          amount={card.amount}
+           />
       )
     })
 
@@ -51,9 +51,7 @@ class Interests extends React.Component {
               <th>Gains/Losses</th>
             </tr>
           </thead>
-          <tbody>
             {interestList}
-          </tbody>
         </table>
       </section>
     )
