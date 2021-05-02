@@ -11,12 +11,19 @@ class CardFinder extends React.Component {
       searchtext: '',
     }
     this.applyEdits = this.applyEdits.bind(this);
+    this.deleteCard = this.deleteCard.bind(this);
   }
 
   componentDidMount() {
     axios.get('api/cards').then(res => {
       this.setState({cards: res.data})
     }).catch(err => {
+      console.log(err)
+    })
+  }
+
+  deleteCard(id) {
+    axios.delete(`/api/cards/${id}`).then(res => this.setState({cards: res.data})).catch(err => {
       console.log(err)
     })
   }
@@ -50,7 +57,8 @@ class CardFinder extends React.Component {
             <button type="submit">Search</button>
           </form >
         </section>
-        <Interests applyEditsFn={this.applyEdits} />
+        <Interests applyEditsFn={this.applyEdits} cards={this.state.cards}
+        deleteCardFn={this.deleteCard} />
       </section>
     )
   }

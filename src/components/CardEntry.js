@@ -25,7 +25,7 @@ class CardEntry extends React.Component {
   }
 
   render() {
-    const {name, set, amount, mktprice, buyprice} = this.props;
+    const {name, set, amount, mktprice, buyprice, deleteCardFn, id} = this.props;
     let margins = (mktprice-buyprice).toFixed(2);
     if (margins > 0) {
       margins = '+' + margins;
@@ -33,11 +33,13 @@ class CardEntry extends React.Component {
 
     const editButtons = <tr className="editpopup">
       <button className="toggle-button" onClick={this.openModal}>Edit</button>
-      <button className="editbuttons">Delete</button>
-      <td><Modal id={this.props.id} 
+      <button className="editbuttons" onClick={() => deleteCardFn(id)}>Delete</button>
+      <td><Modal id={id} 
                 closeModalFn={this.closeModal} 
                 showmodal={this.state.showmodal}
-                applyEditsFn = {this.props.applyEditsFn}>
+                applyEditsFn = {this.props.applyEditsFn}
+                editModeFn={this.editMode}
+                cardname={name}>
           </Modal>
       </td>
     </tr>

@@ -52,8 +52,10 @@ module.exports = {
     const ix = cardCollection.findIndex(card => {
       return parseInt(id) === card.id;
     });
+
+    console.log(ix);
     
-    if (ix) {
+    if (ix >= 0) {
       const ucard = {
         ...cardCollection[ix],
         buyprice: buyprice || cardCollection[ix].buyprice,

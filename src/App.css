@@ -1,5 +1,17 @@
+body {
+  margin-left: 3%;
+  margin-right: 3%;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+ }
+
 .header {
-  background-color: rgb(184, 184, 184);
+  background-color: #E94F37;
   width: 100%;
   min-height: 10vh;
   display: flex;
@@ -7,7 +19,7 @@
 }
 
 .header-logo {
-  background-color: mediumaquamarine;
+  background-color: #E94F37;
   width: 100%;
   flex: 1;
   display: flex;
@@ -15,7 +27,8 @@
 }
 
 .logo {
-  width: 300px;
+  min-width: 200px;
+  max-width: 300px;
 
 }
 
@@ -38,12 +51,12 @@
 }
 
 .link {
-  font-size: 28px;
+  font-size: 20px;
   margin-bottom: 5px;
 }
 
 h1 {
-  font-size: 56px;
+  font-size: 42px;
   margin-top: 10px;
 }
 
@@ -56,13 +69,15 @@ h1 {
 
 .cardfinder {
   text-align: center;
-  background-color: brown;
+  background-color: #D2D5DA;
   flex: 1;
+  border-right: solid 1px #160C28;
 }
 
 .interests {
   text-align: center;
-  background-color: blueviolet;
+  background-color: #D2D5DA;
+  border-right: solid 1px #160C28;
   flex: 3;
   display: flex;
   flex-direction: column;
@@ -70,20 +85,29 @@ h1 {
   align-items: center;
 }
 .iname {
+  overflow: hidden;
+  width: 400px;
+
+}
+
+.cardentry td {
+  overflow:hidden;
+  border-bottom: 1px solid #D2D5DA;
 
 }
 
 .intereststable {
   border-collapse: collapse;
-  margin: 25px 100px;
-  font-size: 1.6em;
-  min-width: 1200px;
-  background-color: lightcoral;
+  margin: 12px 50px;
+  font-size: 1.2em;
+  min-width: 960px;
+  background-color: #F7F4F3;
+  border-radius: 5px;
 
 }
 
 .intereststable thead tr {
-  background-color: maroon;
+  background-color: #E94F37;
   color: white;
   text-align: left;
 }
