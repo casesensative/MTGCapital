@@ -28,7 +28,9 @@ class Interests extends React.Component {
 
     return (
       <section className="interests">
-        <h1>Interests</h1>
+        <div className="interestsheader">
+          <h1>INTERESTS</h1>
+        </div>
 
 
 
@@ -38,9 +40,9 @@ class Interests extends React.Component {
               <th>CardName</th>
               <th>Set</th>
               <th>Amount</th>
-              <th>BuyPrice</th>
-              <th>MarketPrice</th>
-              <th>Gains/Losses</th>
+              <th>Bought</th>
+              <th>Market</th>
+              <th>+ / -</th>
             </tr>
           </thead>
             {interestList}

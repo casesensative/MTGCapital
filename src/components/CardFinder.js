@@ -9,6 +9,7 @@ class CardFinder extends React.Component {
     this.state = {
       cards: [],
       searchtext: '',
+      searchResults: [],
     }
     this.applyEdits = this.applyEdits.bind(this);
     this.deleteCard = this.deleteCard.bind(this);
@@ -40,10 +41,21 @@ class CardFinder extends React.Component {
     this.setState({searchtext: text})
   }
 
-  searchFunction(e) {
-    e.preventdefault();
-    axios.get(`url${this.state.searchtext}`);// .then to set card title, img, and mrktprice.
-    this.setState({searchtext: ''});
+  // searchFunction(e) {
+  //   e.preventdefault();
+  //   axios.get(`url${this.state.searchtext}`);// .then to set card title, img, and mrktprice.
+  //   this.setState({searchtext: ''});
+  // }
+
+  cardSearch(name, e) {
+    e.preventDefault();
+    console.log(name);
+    axios.get(`/api/testsearch/${name}`).then(res => {
+      console.log(res.data);
+      this.setState({searchResults: res.data})
+    }).catch(err => {
+      console.log(err)
+    })
   }
 
   render() {
@@ -51,10 +63,12 @@ class CardFinder extends React.Component {
     return (
       <section className="main">
         <section className="cardfinder">
-          <h1>Card Search</h1>
+          <div className="cardfinderheader">
+            <h1>CARD SEARCH</h1>
+          </div>
           <form className="search">
             <input type="text" onChange={e => this.textHandler(e.target.value)}/>
-            <button type="submit">Search</button>
+            <button type="submit" onClick={(e) => this.cardSearch(this.state.searchtext, e)}>Search</button>
           </form >
         </section>
         <Interests applyEditsFn={this.applyEdits} cards={this.state.cards}

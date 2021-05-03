@@ -48,7 +48,7 @@ class CardEntry extends React.Component {
     return (
       <tbody>
         <tr className="cardentry">
-          <td className="iname" onClick={() => this.editMode()}>{name}</td>
+          <td onClick={() => this.editMode()}><button className="cardname">{name}</button></td>
           <td>{set}</td> 
           <td>{amount}</td> 
           <td>{buyprice}</td> 
