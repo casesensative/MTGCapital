@@ -114,20 +114,24 @@ class CardFinder extends React.Component {
       console.log(err);
     })
   }
-  
-  getCardPrices() {
-    axios.get('/api/marketprices/').then(res => {
-      console.log('PRICES:', res.data);
-    }).catch(err => {
-      console.log(err);
-    })
+
+  addCard() {
+    
   }
+  
+  // getCardPrices() {
+  //   axios.get('/api/marketprices/').then(res => {
+  //     console.log('PRICES:', res.data);
+  //   }).catch(err => {
+  //     console.log(err);
+  //   })
+  // }
 
   
 
   render() {
 
-    const {searchResults, groupResults} = this.state;
+    const {searchResults} = this.state;
     // const resultsCopy = {...searchResults}
     // for (let i = 0;i < searchResults.length; i++) {
     //   for (let j = 0; j < searchResults.length; j++) {
