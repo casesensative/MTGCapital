@@ -79,7 +79,6 @@ class CardFinder extends React.Component {
 
       this.getCardSets(res.data);
       setTimeout(this.setsUpdate, 1500);
-      // setTimeout(this.getCardPrices, 1500);
 
     }).catch(err => {
       console.log(err)
@@ -155,7 +154,7 @@ class CardFinder extends React.Component {
   
 
   render() {
-
+ 
     const {searchResults} = this.state;
     // const resultsCopy = {...searchResults}
     // for (let i = 0;i < searchResults.length; i++) {

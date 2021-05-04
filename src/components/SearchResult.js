@@ -68,7 +68,7 @@ export default class SearchResult extends React.Component {
                   cardName={cardName} 
                   setName={setName}
                   toggleAddModal={this.toggleAddModal} 
-                  updateCardsArrayFn={updateCardsArrayFn} />
+                  updateCards={updateCardsArrayFn} />
 
       </div>
     )
