@@ -92,6 +92,7 @@ export default class AddModal extends React.Component {
         })
       }
       this.props.toggleAddModal();
+      this.props.clearSearchFn();
     } else {
       alert('Missing fields!');
     }

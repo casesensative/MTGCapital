@@ -10,11 +10,11 @@ let cardCollection = [
   },
   {
     id: 2,
-    name: 'Testcard2',
-    set: 'Test Edition',
+    name: 'Thran Dynamo',
+    set: 'Archenemy',
     amount: 4,
-    mktprice: 2.38,
-    buyprice: 0.54
+    mktprice: 5.10,
+    buyprice: 3.50
   },
   {
     id: 3,

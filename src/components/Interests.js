@@ -14,10 +14,10 @@ class Interests extends React.Component {
   render() {
     const {applyEditsFn, deleteCardFn, cards} = this.props;
     let totalArray = cards.map(card => {
-      // console.log(typeof card.mktprice);
-      // console.log(card.buyprice);
-      // console.log(card.amount);
-      return +(card.mktprice*card.amount-card.buyprice*card.amount).toFixed(2)
+      if (card.mktprice) {
+      return +(card.mktprice*card.amount-card.buyprice*card.amount).toFixed(2); } else {
+        return +(card.foilprice*card.amount-card.buyprice*card.amount).toFixed(2);
+      }
     })
 
     let total = totalArray.reduce((acc, num) => {
@@ -50,6 +50,7 @@ class Interests extends React.Component {
           amount={card.amount} 
           applyEditsFn={applyEditsFn}
           deleteCardFn={deleteCardFn}
+          foilprice={card.foilprice}
            />
       )
     })
@@ -67,6 +68,7 @@ class Interests extends React.Component {
             <tr>
               <th>CardName</th>
               <th>Set</th>
+              <th>Foil</th>
               <th>Amount</th>
               <th>Bought</th>
               <th>Market</th>
@@ -76,6 +78,7 @@ class Interests extends React.Component {
             {interestList}
           <tfoot>
             <tr>
+              <td>Total gains/losses:</td>
               <td></td>
               <td></td>
               <td></td>

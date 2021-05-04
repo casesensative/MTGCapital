@@ -25,11 +25,25 @@ class CardEntry extends React.Component {
   }
 
   render() {
-    const {name, set, amount, mktprice, buyprice, deleteCardFn, id} = this.props;
-    let margins = (mktprice*amount-buyprice*amount).toFixed(2);
+    const {name, set, amount, mktprice, buyprice, deleteCardFn, id, foilprice} = this.props;
+
+    let margins = 0;
+    
+    if (mktprice) {
+      margins = (mktprice*amount-buyprice*amount).toFixed(2);
+
+    } else {
+      margins = (foilprice*amount-buyprice*amount).toFixed(2);
+    }
+
     if (margins > 0) {
       margins = '+' + margins;
     }
+
+    // let margins = (mktprice*amount-buyprice*amount).toFixed(2);
+    // if (margins > 0) {
+    //   margins = '+' + margins;
+    // }
 
     const editButtons = <tr className="editpopup">
       <button className="toggle-button" onClick={this.openModal}>Edit</button>
@@ -50,10 +64,11 @@ class CardEntry extends React.Component {
       <tbody>
         <tr className="cardentry">
           <td onClick={() => this.editMode()}><button className="cardname">{name}</button></td>
-          <td>{set}</td> 
-          <td>{amount}</td> 
+          <td>{set}</td>
+          <td>{foilprice ? 'Yes' : 'No'}</td>
+          <td style={{textAlign: 'center'}}>{amount}</td> 
           <td>{buyprice}</td> 
-          <td>{mktprice}</td>
+          <td>{mktprice ? mktprice : foilprice}</td>
           <td>{margins}</td>
         </tr>
         {this.state.editmode ? editButtons : ''}

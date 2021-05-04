@@ -48,7 +48,7 @@ export default class SearchResult extends React.Component {
 
   render() {
 
-  const {cardName, cardImg, setName, mktPrice, mktFoilPrice, updateCardsArrayFn} = this.props;
+  const {cardName, cardImg, setName, mktPrice, mktFoilPrice, updateCardsArrayFn, clearSearchFn} = this.props;
 
 
 
@@ -57,7 +57,8 @@ export default class SearchResult extends React.Component {
         <div className="searchresult">
           <button class="searchname" onClick={() => {this.toggleAddModal()}} 
                   onMouseOver={this.mouseOver} onMouseOut={this.mouseOut}>{cardName}</button>
-          {this.state.nameHover ? <img src={cardImg} className="imgthumbnail" alt='card'/> : null}
+          {/* {this.state.nameHover ? <img src={cardImg} className="imgthumbnail" alt='card'/> : null} */}
+          <img src={cardImg} className="imgthumbnail" alt='' />
           {setName}
           {this.mktDisplay(mktPrice)}
           {this.foilDisplay(mktFoilPrice)}
@@ -68,7 +69,8 @@ export default class SearchResult extends React.Component {
                   cardName={cardName} 
                   setName={setName}
                   toggleAddModal={this.toggleAddModal} 
-                  updateCardsArrayFn={updateCardsArrayFn} />
+                  updateCardsArrayFn={updateCardsArrayFn}
+                  clearSearchFn={clearSearchFn} />
 
       </div>
     )

@@ -73,11 +73,13 @@ h1 {
 
 .cardfinder {
   background-color: #FDFFFC;
+  max-height: 100%;
   flex: 1;
   border-right: solid 1px #160C28;
   border-left: solid 1px #160C28;
   text-align: center;
   border-top-left-radius: 8px;
+  overflow: scroll;
 }
 
 .cardfinderheader {
@@ -91,23 +93,38 @@ h1 {
   border-top-left-radius: 8px;
 }
 
+.flexresults  {
+  display: flex;
+  flex-wrap:wrap;
+  overflow: hidden;
+}
+
 .searchresults {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
 }
 
 .searchresult {
-  background-color: red;
-  width: 140px;
-  height: 240px;
-  margin-top: 10px;
+  background-color: #6D98BA;
+  background-color: rgba(57,62,65,.3);
+  border: 1px solid #393E41;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  padding: 4px;
+  display:flex;
+  flex-direction: column;
+  box-shadow: 1px 1px 3px 0px #393E41;
 }
 .imgthumbnail {
-  width: 100px;
+  width: 80px;
   position: relative;
-  /* margin-left: auto;
-  margin-right: auto; */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .interests {
