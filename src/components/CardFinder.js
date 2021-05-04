@@ -18,7 +18,8 @@ class CardFinder extends React.Component {
     this.setsUpdate = this.setsUpdate.bind(this);
     this.cardSearch = this.cardSearch.bind(this);
     this.getCardSets = this.getCardSets.bind(this);
-    this.getCardPrices = this.getCardPrices.bind(this);
+    this.updateCardsArray = this.updateCardsArray.bind(this);
+    // this.addCard = this.addCard.bind(this);
   }
 
   componentDidMount() {
@@ -115,17 +116,41 @@ class CardFinder extends React.Component {
     })
   }
 
-  addCard() {
+  // addCard(cardName, setName, mktPrice, mktFoilPrice, buyprice, amount) {
+  //   console.log('I AM ADDING CARD');
+  //   console.log(buyprice);
+  //   console.log(amount);
+
+  //   if (buyprice && amount) {
     
-  }
-  
-  // getCardPrices() {
-  //   axios.get('/api/marketprices/').then(res => {
-  //     console.log('PRICES:', res.data);
-  //   }).catch(err => {
-  //     console.log(err);
-  //   })
+  //     if (this.state.foil && this.state.market && this.state.foilFlag) {
+  //       axios.post('/api/cards', {cardName, setName, mktFoilPrice, buyprice, amount}).then(res => {
+  //         this.setState({cards: res.data});
+  //       }).catch (err => {
+  //         console.log(err);
+  //       })
+  //     } else if (this.state.foil && !this.state.market) {
+  //       axios.post('/api/cards', {cardName, setName, mktFoilPrice, buyprice, amount}).then(res => {
+  //         this.setState({cards: res.data});
+  //       }).catch (err => {
+  //         console.log(err);
+  //       })
+  //     } else if (!this.state.foil && this.state.market) {
+  //       console.log('adding market price card');
+  //       axios.post('/api/cards', {cardName, setName, mktPrice, buyprice, amount}).then(res => {
+  //         this.setState({cards: res.data});
+  //       }).catch(err => {
+  //         console.log(err);
+  //       })
+  //     }
+  //   } else {
+  //     alert('Missing fields!');
+  //   }
   // }
+
+  updateCardsArray(data) {
+    this.setState({cards: data});
+  }
 
   
 
@@ -148,7 +173,13 @@ class CardFinder extends React.Component {
     
 
     let displayResults = searchResults.map((card, i) =>{
-      return <SearchResult mktPrice={card.NormalPrice} mktFoilPrice={card.FoilPrice} cardName={card.name} cardImg={card.imageUrl} setName={card.setName} key={i} />
+      return <SearchResult mktPrice={card.NormalPrice} 
+                            mktFoilPrice={card.FoilPrice} 
+                            cardName={card.name} 
+                            cardImg={card.imageUrl} 
+                            setName={card.setName} 
+                            updateCardsArrayFn={this.updateCardsArray}
+                            key={i} />
     })
 
     return (

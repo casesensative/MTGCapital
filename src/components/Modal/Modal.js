@@ -36,7 +36,7 @@ export default class Modal extends React.Component {
   }
 
   render() {
-    const {closeModalFn, showmodal} = this.props;
+    const {showmodal} = this.props;
     if(!showmodal) {
       return null;
     };

@@ -23,6 +23,20 @@
   border-style: none;
 }
 
+.addmodal {
+  position: relative;
+  z-index: 1;
+  background: white;
+  width: 500px;
+  min-height: 40px;
+  top:30%;
+  left:15%;
+  transform: translate(-50%,-50%);
+  padding: 10px;
+  border-radius: 6px;
+  border-style: none;
+}
+
 .modalx{
   display: flex;
   justify-content: flex-end;

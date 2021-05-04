@@ -26,7 +26,7 @@ class CardEntry extends React.Component {
 
   render() {
     const {name, set, amount, mktprice, buyprice, deleteCardFn, id} = this.props;
-    let margins = (mktprice-buyprice).toFixed(2);
+    let margins = (mktprice*amount-buyprice*amount).toFixed(2);
     if (margins > 0) {
       margins = '+' + margins;
     }
@@ -39,7 +39,8 @@ class CardEntry extends React.Component {
                 showmodal={this.state.showmodal}
                 applyEditsFn = {this.props.applyEditsFn}
                 editModeFn={this.editMode}
-                cardname={name}>
+                cardname={name}
+                setName={set}>
           </Modal>
       </td>
     </tr>

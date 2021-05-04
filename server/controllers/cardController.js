@@ -35,13 +35,15 @@ module.exports = {
   },
 
   addCard: (req, res) => {
-    const {name, set, mktprice, buyprice, amount, foilprice} = req.body;
-    if (name && set && mktprice && buyprice && amount) {
-      cardCollection.push({name, set, mktprice, buyprice, amount, id: id });
+    const {cardName, setName, mktPrice, buyprice, amount, mktFoilPrice} = req.body;
+    if (cardName && setName && mktPrice && buyprice && amount) {
+      console.log('adding market card');
+      cardCollection.push({name: cardName, set: setName, mktprice: mktPrice, buyprice, amount, id: id });
       id++;
       res.status(200).send(cardCollection);
-  } else if (name && set && foilprice && buyprice && amount) {
-    cardCollection.push({name, set, foilprice, buyprice, amount, id: id });
+  } else if (cardName && setName && mktFoilPrice && buyprice && amount) {
+    console.log('adding foil card');
+    cardCollection.push({name: cardName, set: setName, foilprice: mktFoilPrice, buyprice, amount, id: id });
     id++;
     res.status(200).send(cardCollection);
   } else {

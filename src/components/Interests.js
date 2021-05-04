@@ -12,8 +12,36 @@ class Interests extends React.Component {
 
 
   render() {
-    const {applyEditsFn, deleteCardFn} = this.props;
-    let interestList = this.props.cards.map(card => {
+    const {applyEditsFn, deleteCardFn, cards} = this.props;
+    let totalArray = cards.map(card => {
+      // console.log(typeof card.mktprice);
+      // console.log(card.buyprice);
+      // console.log(card.amount);
+      return +(card.mktprice*card.amount-card.buyprice*card.amount).toFixed(2)
+    })
+
+    let total = totalArray.reduce((acc, num) => {
+      return +(acc + num).toFixed(2);
+    }, 0)
+
+    if (total > 0) {
+      total = '+' + total;
+    }
+
+
+
+    // let totals = [];
+
+    // cards.forEach(card => {
+    //   totals.push(Math.ceil((Number(card.mktprice)*Number(card.amount))-(Number(card.buyprice)*Number(card.amount))/100)*100);
+    // })
+
+      // console.log(total);
+    // }).reduce((a, num) => {
+    //   return a + num;
+    // })
+
+    let interestList = cards.map(card => {
       return (
           <CardEntry key={card.id.toString()} name={card.name} id={card.id}
           set={card.set}
@@ -46,6 +74,16 @@ class Interests extends React.Component {
             </tr>
           </thead>
             {interestList}
+          <tfoot>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>{total}</td>
+            </tr>
+          </tfoot>
         </table>
       </section>
     )

@@ -26,16 +26,16 @@ module.exports = {
     }
   
     axios.post(url, request, headers).then(results => {
-      console.log(results.data);
+      // console.log(results.data);
       searchids = results.data.results.join(',');
-      console.log('SEARCH_IDS:', searchids);
+      // console.log('SEARCH_IDS:', searchids);
       axios.get(url2 + `${searchids}`, headers).then(dresults => {
         
         
         const productArray = dresults.data.results;
-        console.log(productArray);
+        // console.log(productArray);
         axios.get(url3 + `${searchids}`, headers).then(presults => {
-          console.log(presults.data);
+          // console.log(presults.data);
           const priceArray = presults.data.results;
           for (let i = 0; i < productArray.length; i++) {
             for (let j = 0; j < priceArray.length; j++) {
@@ -49,7 +49,7 @@ module.exports = {
               }
             }
           }
-          console.log(productArray);
+          // console.log(productArray);
           // console.log(priceArray);
           res.status(200).send(productArray);
         })

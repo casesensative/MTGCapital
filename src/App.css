@@ -105,9 +105,9 @@ h1 {
 }
 .imgthumbnail {
   width: 100px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  position: relative;
+  /* margin-left: auto;
+  margin-right: auto; */
 }
 
 .interests {
@@ -178,6 +178,16 @@ h1 {
 
 .editpopup {
 
+}
+
+.searchname {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
 }
 
 
