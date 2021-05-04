@@ -102,7 +102,7 @@ app.use(express.json());
 // app.get('/api/token', renewBearerToken);
 app.get('/api/testsearch/:cardName', apiControl.cardNameSearch);
 app.get('/api/groupsearch/:groupId', apiControl.getCardSet);
-app.get('/api/marketprices/', apiControl.getMarketPrices);
+// app.get('/api/marketprices/', apiControl.getMarketPrices);
 
 
 

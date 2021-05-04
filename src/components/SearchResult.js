@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function SearchResult(props) {
 
-  const {cardName, cardImg, setName} = props;
+  const {cardName, cardImg, setName, mktPrice, mktFoilPrice} = props;
 
   return (
     <div className="searchresults">
@@ -11,6 +11,8 @@ export default function SearchResult(props) {
         {cardName}
         {setName}
         <img src={cardImg} className="imgthumbnail"alt=""/>
+        Market Price:{mktPrice}
+        Foil Price:{mktFoilPrice}
       </div>
 
     </div>
